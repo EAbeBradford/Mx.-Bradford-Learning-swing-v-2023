@@ -13,6 +13,12 @@ public class SwingControlDemo implements ActionListener {
     private JLabel southLabel4;
     private JLabel southLabel5;
 
+    private JLabel northLeftLabel1;
+    private JLabel northLeftLabel2;
+    private JLabel northLeftLabel3;
+    private JLabel northLeftLabel4;
+    private JLabel northLeftLabel5;
+
     private JLabel northRightLabel;
 
     private JPanel controlPanel;
@@ -177,14 +183,48 @@ public class SwingControlDemo implements ActionListener {
         mainFrame.setVisible(true);
     }
     private void showTopLeftEventDemo() {
+        northLeftLabel1 = new JLabel("Top 0", SwingConstants.CENTER);
+        northLeftLabel2 = new JLabel("Top 0", SwingConstants.CENTER);
+        northLeftLabel3 = new JLabel("Top 0", SwingConstants.CENTER);
+        northLeftLabel4 = new JLabel("Top 0", SwingConstants.CENTER);
+        northLeftLabel5 = new JLabel("Top 0", SwingConstants.CENTER);
 
+        JButton button1 = new JButton("Top 1");
+        JButton button2 = new JButton("Top 2");
+        JButton button3 = new JButton("Top 3");
+        JButton button4 = new JButton("Top 4");
+
+        button1.setActionCommand("top1");
+        button2.setActionCommand("top2");
+        button3.setActionCommand("top3");
+        button4.setActionCommand("top4");
+
+        button1.addActionListener(new ButtonClickListener());
+        button2.addActionListener(new ButtonClickListener());
+        button3.addActionListener(new ButtonClickListener());
+        button4.addActionListener(new ButtonClickListener());
+
+        topLeftPannel.add(northLeftLabel1);
+        topLeftPannel.add(button1);
+        topLeftPannel.add(northLeftLabel2);
+        topLeftPannel.add(button2);
+        topLeftPannel.add(northLeftLabel3);
+        topLeftPannel.add(button3);
+        topLeftPannel.add(northLeftLabel4);
+        topLeftPannel.add(button4);
+        topLeftPannel.add(northLeftLabel5);
     }
     private void showTopRightEventDemo() {
         northRightLabel = new JLabel("TopRight", SwingConstants.CENTER);
+
         JButton button1 = new JButton("1");
+
         button1.setActionCommand("TopRight");
+
         button1.addActionListener(new ButtonClickListener());
+
         topRightPannel.add(northRightLabel);
+
         topRightPannel.add(button1);
 
         mainFrame.setVisible(true);
@@ -230,6 +270,35 @@ public class SwingControlDemo implements ActionListener {
                 southLabel5.setText("3");
             } else if(command.equals("TopRight")) {
                 northRightLabel.setText("clicked the top right button");
+            } else if (command.equals("top1")) {
+                //statusLabel.setText("Ok Button clicked.");
+                northLeftLabel1.setText("Top 1");
+                northLeftLabel2.setText("Top 1");
+                northLeftLabel3.setText("Top 1");
+                northLeftLabel4.setText("Top 1");
+                northLeftLabel5.setText("Top 1");
+
+            } else if (command.equals("top2")) {
+                //statusLabel.setText("Ok Button clicked.");
+                northLeftLabel1.setText("Top 2");
+                northLeftLabel2.setText("Top 2");
+                northLeftLabel3.setText("Top 2");
+                northLeftLabel4.setText("Top 2");
+                northLeftLabel5.setText("Top 2");
+            }else if (command.equals("top3")) {
+                //statusLabel.setText("Ok Button clicked.");
+                northLeftLabel1.setText("Top 3");
+                northLeftLabel2.setText("Top 3");
+                northLeftLabel3.setText("Top 3");
+                northLeftLabel4.setText("Top 3");
+                northLeftLabel5.setText("Top 3");
+            }else if (command.equals("top4")) {
+                //statusLabel.setText("Ok Button clicked.");
+                northLeftLabel1.setText("Top 4");
+                northLeftLabel2.setText("Top 4");
+                northLeftLabel3.setText("Top 4");
+                northLeftLabel4.setText("Top 4");
+                northLeftLabel5.setText("Top 4");
             } else {
                 //statusLabel.setText("Ok Button clicked.");
                 southLabel1.setText("4");
