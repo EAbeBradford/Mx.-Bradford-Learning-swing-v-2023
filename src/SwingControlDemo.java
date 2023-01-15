@@ -6,6 +6,13 @@ public class SwingControlDemo implements ActionListener {
     private JFrame mainFrame;
     private JLabel headerLabel;
     private JLabel statusLabel;
+
+    private JLabel southLabel1;
+    private JLabel southLabel2;
+    private JLabel southLabel3;
+    private JLabel southLabel4;
+    private JLabel southLabel5;
+
     private JPanel controlPanel;
     private JPanel topPannel;
     private  JPanel bottomPannel;
@@ -16,6 +23,8 @@ public class SwingControlDemo implements ActionListener {
     private JMenu file, edit, help;
     private JMenuItem cut, copy, paste, selectAll;
     private JTextArea ta;
+
+    private JTextArea bottomCenterText;
     private int WIDTH=800;
     private int HEIGHT=700;
 
@@ -32,7 +41,7 @@ public class SwingControlDemo implements ActionListener {
     private void prepareGUI() {
         mainFrame = new JFrame("Mx. Bradford learning swing");
         mainFrame.setSize(WIDTH, HEIGHT);
-        mainFrame.setLayout(new GridLayout(3, 1)); //has to be three  because of the menu items
+        mainFrame.setLayout(new GridLayout(2, 1));
 
 
         cut = new JMenuItem("cut");
@@ -89,15 +98,19 @@ public class SwingControlDemo implements ActionListener {
         bottomSouthPannel = new JPanel();
         bottomSouthPannel.setLayout(new GridLayout(1, 9));
 
+        bottomCenterText = new JTextArea();
+        bottomCenterText.setBounds(10, 300, WIDTH , HEIGHT-50);
+
        // mainFrame.add(headerLabel);
       //  mainFrame.add(controlPanel);
         topPannel.add(topLeftPannel);
         topPannel.add(topRightPannel);
-        bottomPannel.add(bottomSouthPannel);
+        bottomPannel.add(bottomSouthPannel, BorderLayout.SOUTH);
+        bottomPannel.add(bottomCenterText, BorderLayout.CENTER);
 
         mainFrame.add(topPannel);
         mainFrame.add(bottomPannel);
-        mainFrame.add(statusLabel);
+       // mainFrame.add(statusLabel);
         mainFrame.setVisible(true);
     }
 
@@ -120,6 +133,37 @@ public class SwingControlDemo implements ActionListener {
         controlPanel.add(submitButton);
         controlPanel.add(cancelButton);
 
+        southLabel1 = new JLabel("0");
+        southLabel2 = new JLabel("0");
+        southLabel3 = new JLabel("0");
+        southLabel4 = new JLabel("0");
+        southLabel5 = new JLabel("0");
+
+        JButton button1 = new JButton("1");
+        JButton button2 = new JButton("2");
+        JButton button3 = new JButton("3");
+        JButton button4 = new JButton("4");
+
+        button1.setActionCommand("1");
+        button2.setActionCommand("2");
+        button3.setActionCommand("3");
+        button4.setActionCommand("4");
+
+        button1.addActionListener(new ButtonClickListener());
+        button2.addActionListener(new ButtonClickListener());
+        button3.addActionListener(new ButtonClickListener());
+        button4.addActionListener(new ButtonClickListener());
+
+        bottomSouthPannel.add(southLabel1);
+        bottomSouthPannel.add(button1);
+        bottomSouthPannel.add(southLabel2);
+        bottomSouthPannel.add(button2);
+        bottomSouthPannel.add(southLabel3);
+        bottomSouthPannel.add(button3);
+        bottomSouthPannel.add(southLabel4);
+        bottomSouthPannel.add(button4);
+        bottomSouthPannel.add(southLabel5);
+
         mainFrame.setVisible(true);
     }
 
@@ -139,12 +183,34 @@ public class SwingControlDemo implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
 
-            if (command.equals("OK")) {
-                statusLabel.setText("Ok Button clicked.");
-            } else if (command.equals("Submit")) {
-                statusLabel.setText("Submit Button clicked.");
+            if (command.equals("1")) {
+                //statusLabel.setText("Ok Button clicked.");
+                southLabel1.setText("1");
+                southLabel2.setText("1");
+                southLabel3.setText("1");
+                southLabel4.setText("1");
+                southLabel5.setText("1");
+            } else if (command.equals("2")) {
+                //statusLabel.setText("Ok Button clicked.");
+                southLabel1.setText("2");
+                southLabel2.setText("2");
+                southLabel3.setText("2");
+                southLabel4.setText("2");
+                southLabel5.setText("2");
+            } else if (command.equals("3")) {
+                //statusLabel.setText("Ok Button clicked.");
+                southLabel1.setText("3");
+                southLabel2.setText("3");
+                southLabel3.setText("3");
+                southLabel4.setText("3");
+                southLabel5.setText("3");
             } else {
-                statusLabel.setText("Cancel Button clicked.");
+                //statusLabel.setText("Ok Button clicked.");
+                southLabel1.setText("4");
+                southLabel2.setText("4");
+                southLabel3.setText("4");
+                southLabel4.setText("4");
+                southLabel5.setText("4");
             }
         }
     }
