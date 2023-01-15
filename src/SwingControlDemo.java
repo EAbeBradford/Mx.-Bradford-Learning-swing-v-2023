@@ -97,6 +97,7 @@ public class SwingControlDemo implements ActionListener {
 
         bottomSouthPannel = new JPanel();
         bottomSouthPannel.setLayout(new GridLayout(1, 9));
+        //bottomSouthPannel.setSize(WIDTH, 100);
 
         bottomCenterText = new JTextArea();
         bottomCenterText.setBounds(10, 300, WIDTH , HEIGHT-50);
@@ -133,11 +134,11 @@ public class SwingControlDemo implements ActionListener {
         controlPanel.add(submitButton);
         controlPanel.add(cancelButton);
 
-        southLabel1 = new JLabel("0");
-        southLabel2 = new JLabel("0");
-        southLabel3 = new JLabel("0");
-        southLabel4 = new JLabel("0");
-        southLabel5 = new JLabel("0");
+        southLabel1 = new JLabel("0", SwingConstants.CENTER);
+        southLabel2 = new JLabel("0", SwingConstants.CENTER);
+        southLabel3 = new JLabel("0", SwingConstants.CENTER);
+        southLabel4 = new JLabel("0", SwingConstants.CENTER);
+        southLabel5 = new JLabel("0", SwingConstants.CENTER);
 
         JButton button1 = new JButton("1");
         JButton button2 = new JButton("2");
@@ -153,6 +154,11 @@ public class SwingControlDemo implements ActionListener {
         button2.addActionListener(new ButtonClickListener());
         button3.addActionListener(new ButtonClickListener());
         button4.addActionListener(new ButtonClickListener());
+
+        button2.setSize(50, 50);
+        button1.setSize(50, 50);
+        button3.setSize(50, 50);
+        button4.setSize(50, 50);
 
         bottomSouthPannel.add(southLabel1);
         bottomSouthPannel.add(button1);
