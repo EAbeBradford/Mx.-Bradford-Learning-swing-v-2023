@@ -7,6 +7,11 @@ public class SwingControlDemo implements ActionListener {
     private JLabel headerLabel;
     private JLabel statusLabel;
     private JPanel controlPanel;
+    private JPanel topPannel;
+    private  JPanel bottomPannel;
+    private JPanel topLeftPannel;
+    private  JPanel topRightPannel;
+    private JPanel bottomSouthPannel;
     private JMenuBar mb;
     private JMenu file, edit, help;
     private JMenuItem cut, copy, paste, selectAll;
@@ -27,7 +32,7 @@ public class SwingControlDemo implements ActionListener {
     private void prepareGUI() {
         mainFrame = new JFrame("Mx. Bradford learning swing");
         mainFrame.setSize(WIDTH, HEIGHT);
-        mainFrame.setLayout(new GridLayout(3, 1));
+        mainFrame.setLayout(new GridLayout(3, 1)); //has to be three  because of the menu items
 
 
         cut = new JMenuItem("cut");
@@ -51,10 +56,10 @@ public class SwingControlDemo implements ActionListener {
         mb.add(edit);
         mb.add(help);
 
-        ta = new JTextArea();
-        ta.setBounds(50, 5, WIDTH-100, HEIGHT-50);
+        //ta = new JTextArea();
+        //ta.setBounds(50, 5, WIDTH-100, HEIGHT-50);
         mainFrame.add(mb);
-        mainFrame.add(ta);
+      //  mainFrame.add(ta);
         mainFrame.setJMenuBar(mb);
 
         headerLabel = new JLabel("", JLabel.CENTER);
@@ -69,8 +74,29 @@ public class SwingControlDemo implements ActionListener {
         controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
 
+        topPannel = new JPanel();
+        topPannel.setLayout(new GridLayout(1, 2));
+
+        bottomPannel = new JPanel();
+        bottomPannel.setLayout(new BorderLayout());
+
+        topLeftPannel = new JPanel();
+        topLeftPannel.setLayout(new GridLayout(3, 3));
+
+        topRightPannel = new JPanel();
+        topRightPannel.setLayout(new GridLayout(2, 1));
+
+        bottomSouthPannel = new JPanel();
+        bottomSouthPannel.setLayout(new GridLayout(1, 9));
+
        // mainFrame.add(headerLabel);
-        mainFrame.add(controlPanel);
+      //  mainFrame.add(controlPanel);
+        topPannel.add(topLeftPannel);
+        topPannel.add(topRightPannel);
+        bottomPannel.add(bottomSouthPannel);
+
+        mainFrame.add(topPannel);
+        mainFrame.add(bottomPannel);
         mainFrame.add(statusLabel);
         mainFrame.setVisible(true);
     }
