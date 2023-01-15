@@ -13,6 +13,8 @@ public class SwingControlDemo implements ActionListener {
     private JLabel southLabel4;
     private JLabel southLabel5;
 
+    private JLabel northRightLabel;
+
     private JPanel controlPanel;
     private JPanel topPannel;
     private  JPanel bottomPannel;
@@ -35,7 +37,9 @@ public class SwingControlDemo implements ActionListener {
 
     public static void main(String[] args) {
         SwingControlDemo swingControlDemo = new SwingControlDemo();
-        swingControlDemo.showEventDemo();
+        swingControlDemo.showSouthEventDemo();
+        swingControlDemo.showTopLeftEventDemo();
+        swingControlDemo.showTopRightEventDemo();
     }
 
     private void prepareGUI() {
@@ -115,24 +119,24 @@ public class SwingControlDemo implements ActionListener {
         mainFrame.setVisible(true);
     }
 
-    private void showEventDemo() {
-        headerLabel.setText("Control in action: Button");
+    private void showSouthEventDemo() {
+//        headerLabel.setText("Control in action: Button");
+//
+//        JButton okButton = new JButton("OK");
+//        JButton submitButton = new JButton("Submit");
+//        JButton cancelButton = new JButton("Cancel");
+//
+//        okButton.setActionCommand("OK");
+//        submitButton.setActionCommand("Submit");
+//        cancelButton.setActionCommand("Cancel");
+//
+//        okButton.addActionListener(new ButtonClickListener());
+//        submitButton.addActionListener(new ButtonClickListener());
+//        cancelButton.addActionListener(new ButtonClickListener());
 
-        JButton okButton = new JButton("OK");
-        JButton submitButton = new JButton("Submit");
-        JButton cancelButton = new JButton("Cancel");
-
-        okButton.setActionCommand("OK");
-        submitButton.setActionCommand("Submit");
-        cancelButton.setActionCommand("Cancel");
-
-        okButton.addActionListener(new ButtonClickListener());
-        submitButton.addActionListener(new ButtonClickListener());
-        cancelButton.addActionListener(new ButtonClickListener());
-
-        controlPanel.add(okButton);
-        controlPanel.add(submitButton);
-        controlPanel.add(cancelButton);
+//        controlPanel.add(okButton);
+//        controlPanel.add(submitButton);
+//        controlPanel.add(cancelButton);
 
         southLabel1 = new JLabel("0", SwingConstants.CENTER);
         southLabel2 = new JLabel("0", SwingConstants.CENTER);
@@ -155,10 +159,10 @@ public class SwingControlDemo implements ActionListener {
         button3.addActionListener(new ButtonClickListener());
         button4.addActionListener(new ButtonClickListener());
 
-        button2.setSize(50, 50);
-        button1.setSize(50, 50);
-        button3.setSize(50, 50);
-        button4.setSize(50, 50);
+//        button2.setSize(50, 50);
+//        button1.setSize(50, 50);
+//        button3.setSize(50, 50);
+//        button4.setSize(50, 50);
 
         bottomSouthPannel.add(southLabel1);
         bottomSouthPannel.add(button1);
@@ -171,6 +175,20 @@ public class SwingControlDemo implements ActionListener {
         bottomSouthPannel.add(southLabel5);
 
         mainFrame.setVisible(true);
+    }
+    private void showTopLeftEventDemo() {
+
+    }
+    private void showTopRightEventDemo() {
+        northRightLabel = new JLabel("TopRight", SwingConstants.CENTER);
+        JButton button1 = new JButton("1");
+        button1.setActionCommand("TopRight");
+        button1.addActionListener(new ButtonClickListener());
+        topRightPannel.add(northRightLabel);
+        topRightPannel.add(button1);
+
+        mainFrame.setVisible(true);
+
     }
 
     @Override
@@ -210,6 +228,8 @@ public class SwingControlDemo implements ActionListener {
                 southLabel3.setText("3");
                 southLabel4.setText("3");
                 southLabel5.setText("3");
+            } else if(command.equals("TopRight")) {
+                northRightLabel.setText("clicked the top right button");
             } else {
                 //statusLabel.setText("Ok Button clicked.");
                 southLabel1.setText("4");
